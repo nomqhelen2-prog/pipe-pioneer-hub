@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import hero from "@/assets/hero.jpg";
@@ -8,16 +7,6 @@ import tiling from "@/assets/tiling.jpg";
 import poster from "@/assets/poster.jpg";
 import independence from "@/assets/independence.jpg";
 import africa from "@/assets/africa-day.jpg";
-
-export const Route = createFileRoute("/gallery")({
-  head: () => ({
-    meta: [
-      { title: "Gallery — PipePioneers" },
-      { name: "description", content: "A look at recent PipePioneers projects — plumbing, electrical, tiling, painting and renovations in Bulawayo." },
-    ],
-  }),
-  component: Gallery,
-});
 
 const items = [
   { src: hero, label: "Plumbing install" },
@@ -29,7 +18,7 @@ const items = [
   { src: africa, label: "Africa Day" },
 ];
 
-function Gallery() {
+export default function Gallery() {
   return (
     <Layout>
       <PageHeader eyebrow="Gallery" title="Recent work, real results." subtitle="A snapshot of projects we've delivered across Bulawayo — from quick fixes to full renovations." />

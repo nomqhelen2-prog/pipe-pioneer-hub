@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import emailjs from "@emailjs/browser";
@@ -6,22 +5,12 @@ import { useRef, useState } from "react";
 import { Phone, Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — PipePioneers" },
-      { name: "description", content: "Request a free quote from PipePioneers in Bulawayo. Call, email or send a message online." },
-    ],
-  }),
-  component: Contact,
-});
-
 // TODO: Replace with your own EmailJS credentials from https://www.emailjs.com/
 const SERVICE_ID = "YOUR_SERVICE_ID";
 const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 
-function Contact() {
+export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -103,7 +92,7 @@ function Contact() {
               {loading ? "Sending..." : sent ? "Sent!" : "Send message"}
             </button>
             <p className="text-xs text-muted-foreground">
-              The form uses EmailJS. Add your Service ID, Template ID and Public Key in <code className="text-brand-navy">src/routes/contact.tsx</code> to enable delivery.
+              The form uses EmailJS. Add your Service ID, Template ID and Public Key in <code className="text-brand-navy">src/pages/Contact.tsx</code> to enable delivery.
             </p>
           </form>
         </div>

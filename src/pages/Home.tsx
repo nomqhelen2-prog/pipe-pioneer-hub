@@ -1,18 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import { Wrench, Zap, Grid3x3, PaintRoller, Hammer, Phone, CheckCircle2, ArrowRight, Star } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import posterImg from "@/assets/poster.jpg";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "PipePioneers — Trusted Trade Service Experts in Bulawayo" },
-      { name: "description", content: "Plumbing, electrical, tiling, painting and building renovations done right the first time. Call PipePioneers in Bulawayo." },
-    ],
-  }),
-  component: Home,
-});
 
 const services = [
   { icon: Wrench, title: "Plumbing", desc: "Installations, repairs, leak detection and full pipework." },
@@ -22,10 +12,9 @@ const services = [
   { icon: Hammer, title: "Building Renovations", desc: "Turn old spaces into modern, functional homes." },
 ];
 
-function Home() {
+export default function Home() {
   return (
     <Layout>
-      {/* Hero */}
       <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <div className="absolute -top-40 -right-20 size-[480px] rounded-full bg-brand-orange/20 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
@@ -57,18 +46,11 @@ function Home() {
           </div>
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl bg-brand-orange/30 blur-2xl" />
-            <img
-              src={heroImg}
-              alt="PipePioneers tradesman at work"
-              width={1600}
-              height={1100}
-              className="relative rounded-2xl shadow-2xl object-cover w-full aspect-[4/3]"
-            />
+            <img src={heroImg} alt="PipePioneers tradesman at work" width={1600} height={1100} className="relative rounded-2xl shadow-2xl object-cover w-full aspect-[4/3]" />
           </div>
         </div>
       </section>
 
-      {/* Services */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
         <div className="text-center max-w-2xl mx-auto">
           <div className="text-xs tracking-[0.25em] font-semibold text-brand-orange uppercase">What We Do</div>
@@ -93,7 +75,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Why us */}
       <section className="bg-secondary">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <img src={posterImg} alt="PipePioneers team" loading="lazy" className="rounded-2xl shadow-[var(--shadow-brand)] object-cover w-full aspect-[4/5]" />
@@ -116,7 +97,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
         <div className="rounded-3xl p-10 md:p-14 text-white relative overflow-hidden" style={{ background: "var(--gradient-accent)" }}>
           <div className="absolute -top-10 -right-10 size-60 rounded-full bg-white/10 blur-2xl" />

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import { Wrench, Zap, Grid3x3, PaintRoller, Hammer, CheckCircle2, ArrowRight } from "lucide-react";
@@ -6,16 +6,6 @@ import electrical from "@/assets/electrical.jpg";
 import painting from "@/assets/painting.jpg";
 import tiling from "@/assets/tiling.jpg";
 import hero from "@/assets/hero.jpg";
-
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services — PipePioneers" },
-      { name: "description", content: "Plumbing, electrical, tiling, painting and building renovations across Bulawayo." },
-    ],
-  }),
-  component: Services,
-});
 
 const services = [
   { icon: Wrench, title: "Plumbing", img: hero, points: ["Pipe installation & repair", "Leak detection", "Geyser & fixture installs", "Drainage solutions"] },
@@ -25,7 +15,7 @@ const services = [
   { icon: Hammer, title: "Building Renovations", img: hero, points: ["Full home renovations", "Extensions & additions", "Project management", "Quality materials"] },
 ];
 
-function Services() {
+export default function Services() {
   return (
     <Layout>
       <PageHeader eyebrow="Our Services" title="Trade services done right, the first time." subtitle="One team, five trades — built around quality, safety and pride in the craft." />

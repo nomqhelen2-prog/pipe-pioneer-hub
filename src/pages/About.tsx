@@ -1,18 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import { Award, Users, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
 import poster from "@/assets/poster.jpg";
-
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — PipePioneers" },
-      { name: "description", content: "Meet PipePioneers — a passionate Bulawayo trade team built on craftsmanship, integrity and a winning attitude." },
-    ],
-  }),
-  component: About,
-});
 
 const values = [
   { icon: Award, title: "Craftsmanship", desc: "We obsess over the details so the work lasts." },
@@ -21,7 +11,7 @@ const values = [
   { icon: Sparkles, title: "Excellence", desc: "Winning is the norm — never the exception." },
 ];
 
-function About() {
+export default function About() {
   return (
     <Layout>
       <PageHeader eyebrow="About Us" title="Built on craft. Driven by results." subtitle="PipePioneers is a Bulawayo-based trade services company delivering quality plumbing, electrical and renovation work to homes and businesses across Zimbabwe." />
