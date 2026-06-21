@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
+import SEO from "@/components/site/SEO";
 import { Award, Users, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
 import poster from "@/assets/poster.jpg";
 
@@ -14,6 +15,11 @@ const values = [
 export default function About() {
   return (
     <Layout>
+      <SEO
+        title="About PipePioneers — Bulawayo's Trusted Trade Team"
+        description="Meet PipePioneers — a Bulawayo trades team delivering quality plumbing, electrical and renovation work built on craftsmanship, integrity and excellence."
+        path="/about"
+      />
       <PageHeader eyebrow="About Us" title="Built on craft. Driven by results." subtitle="PipePioneers is a Bulawayo-based trade services company delivering quality plumbing, electrical and renovation work to homes and businesses across Zimbabwe." />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-10 items-center">

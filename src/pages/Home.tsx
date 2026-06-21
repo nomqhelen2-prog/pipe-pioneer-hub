@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
+import SEO from "@/components/site/SEO";
 import { Wrench, Zap, Grid3x3, PaintRoller, Hammer, Phone, CheckCircle2, ArrowRight, Star } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import posterImg from "@/assets/poster.jpg";
@@ -15,6 +16,19 @@ const services = [
 export default function Home() {
   return (
     <Layout>
+      <SEO
+        title="PipePioneers — Plumbing, Electrical & Renovations in Bulawayo"
+        description="Trusted trade service experts in Bulawayo: plumbing, electrical, tiling, painting and full home renovations. Get a free quote today."
+        path="/"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "PipePioneers",
+          telephone: "+263787517314",
+          areaServed: "Bulawayo, Zimbabwe",
+          address: { "@type": "PostalAddress", addressLocality: "Bulawayo", addressCountry: "ZW" },
+        }}
+      />
       <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <div className="absolute -top-40 -right-20 size-[480px] rounded-full bg-brand-orange/20 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-center">

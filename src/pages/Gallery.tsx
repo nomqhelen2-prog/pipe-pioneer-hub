@@ -1,5 +1,6 @@
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
+import SEO from "@/components/site/SEO";
 import hero from "@/assets/hero.jpg";
 import electrical from "@/assets/electrical.jpg";
 import painting from "@/assets/painting.jpg";
@@ -21,6 +22,11 @@ const items = [
 export default function Gallery() {
   return (
     <Layout>
+      <SEO
+        title="Gallery — Recent Trade & Renovation Projects in Bulawayo"
+        description="Browse PipePioneers' recent plumbing, electrical, tiling, painting and renovation projects across Bulawayo."
+        path="/gallery"
+      />
       <PageHeader eyebrow="Gallery" title="Recent work, real results." subtitle="A snapshot of projects we've delivered across Bulawayo — from quick fixes to full renovations." />
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [&>*]:mb-4">
