@@ -1,5 +1,6 @@
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
+import SEO from "@/components/site/SEO";
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import { Phone, Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
@@ -34,6 +35,11 @@ export default function Contact() {
 
   return (
     <Layout>
+      <SEO
+        title="Contact PipePioneers — Free Quotes for Bulawayo Trade Work"
+        description="Get in touch with PipePioneers for free plumbing, electrical, tiling, painting or renovation quotes in Bulawayo. Replies within 24 hours."
+        path="/contact"
+      />
       <PageHeader eyebrow="Contact" title="Let's get the job done." subtitle="Tell us about your project and we'll get back with a free quote — usually within 24 hours." />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 grid lg:grid-cols-5 gap-10">

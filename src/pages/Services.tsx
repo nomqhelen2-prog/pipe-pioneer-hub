@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
+import SEO from "@/components/site/SEO";
 import { Wrench, Zap, Grid3x3, PaintRoller, Hammer, CheckCircle2, ArrowRight } from "lucide-react";
 import electrical from "@/assets/electrical.jpg";
 import painting from "@/assets/painting.jpg";
@@ -18,6 +19,11 @@ const services = [
 export default function Services() {
   return (
     <Layout>
+      <SEO
+        title="Services — Plumbing, Electrical, Tiling, Painting & Renovations"
+        description="Full-service trades in Bulawayo: plumbing, electrical, tiling, painting and building renovations. Quality workmanship from PipePioneers."
+        path="/services"
+      />
       <PageHeader eyebrow="Our Services" title="Trade services done right, the first time." subtitle="One team, five trades — built around quality, safety and pride in the craft." />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 space-y-16">
         {services.map((s, i) => {
