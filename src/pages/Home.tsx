@@ -1,17 +1,102 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import SEO from "@/components/site/SEO";
-import { Wrench, Zap, Grid3x3, PaintRoller, Hammer, Phone, CheckCircle2, ArrowRight, Star } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+import garageImg from "@/assets/garage.jpeg";
+import buildersImg from "@/assets/builders.jpeg";
 import heroImg from "@/assets/hero.jpg";
-import posterImg from "@/assets/poster.jpg";
+import heroBgImg from "@/assets/hero background image.jpg";
+import ladyImg from "@/assets/ladyfixing.jpg";
+import imgPlumbing from "@/assets/piping.jpeg";
+import imgElectrical from "@/assets/electrical.jpeg";
+import imgTiling from "@/assets/tiling.jpg";
+import imgPainting from "@/assets/painting.jpg";
+import imgRenovations from "@/assets/building.jpeg";
 
 const services = [
-  { icon: Wrench, title: "Plumbing", desc: "Installations, repairs, leak detection and full pipework." },
-  { icon: Zap, title: "Electrical", desc: "Wiring, fault finding, panel installs and certifications." },
-  { icon: Grid3x3, title: "Tiling", desc: "Floor and wall tiling with precision and lasting finishes." },
-  { icon: PaintRoller, title: "Painting", desc: "Interior and exterior paintwork that lifts every room." },
-  { icon: Hammer, title: "Building Renovations", desc: "Turn old spaces into modern, functional homes." },
+  { img: imgPlumbing, title: "Plumbing", desc: "Installations, repairs, leak detection and full pipework." },
+  { img: imgElectrical, title: "Electrical", desc: "Wiring, fault finding, panel installs and certifications." },
+  { img: imgTiling, title: "Tiling", desc: "Floor and wall tiling with precision and lasting finishes." },
+  { img: imgPainting, title: "Painting", desc: "Interior and exterior paintwork that lifts every room." },
+  { img: imgRenovations, title: "Building Renovations", desc: "Turn old spaces into modern, functional homes." },
 ];
+
+function ServiceSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scroll = (dir: "left" | "right") => {
+    scrollRef.current?.scrollBy({ left: dir === "right" ? 500 : -500, behavior: "smooth" });
+  };
+
+  return (
+    <section className="py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex items-end justify-between">
+          <div className="max-w-2xl">
+            <div className="text-xs tracking-[0.25em] font-semibold text-brand-orange uppercase">What We Do</div>
+            <h2 className="mt-2 font-display font-bold text-3xl md:text-4xl text-brand-navy">Services built to last</h2>
+            <p className="mt-3 text-muted-foreground">A complete trade service offering under one trusted roof.</p>
+          </div>
+          {/* Arrow controls */}
+          <div className="hidden sm:flex items-center gap-2 mb-1">
+            <button
+              onClick={() => scroll("left")}
+              className="size-11 rounded-full border-2 border-brand-navy text-brand-navy flex items-center justify-center hover:bg-brand-navy hover:text-white transition-colors"
+              aria-label="Scroll left"
+            >
+              <ArrowLeft className="size-5" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="size-11 rounded-full border-2 border-brand-navy text-brand-navy flex items-center justify-center hover:bg-brand-navy hover:text-white transition-colors"
+              aria-label="Scroll right"
+            >
+              <ArrowRight className="size-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        ref={scrollRef}
+        className="mt-10 px-4 sm:px-6 flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory"
+        style={{ scrollbarWidth: "none" }}
+      >
+        {services.slice(0, 4).map(({ title, desc }, i) => (
+          <div
+            key={title}
+            className="group relative flex-shrink-0 w-[480px] border border-brand-navy/20 snap-start p-12 flex flex-col justify-between min-h-[460px] hover:border-brand-orange transition-colors bg-brand-navy"
+          >
+            <span className="absolute bottom-6 right-8 font-display font-extrabold text-[9rem] text-white/20 select-none leading-none">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 className="font-display font-extrabold text-5xl uppercase leading-tight text-white">{title}</h3>
+              <p className="mt-6 text-base text-white/70 leading-relaxed max-w-sm">{desc}</p>
+            </div>
+            <Link
+              to="/services"
+              className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange uppercase tracking-wider hover:gap-4 transition-all"
+            >
+              Learn more <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        ))}
+        {/* See all card */}
+        <div className="flex-shrink-0 w-[480px] border border-dashed border-brand-orange snap-start p-12 flex flex-col items-center justify-center min-h-[460px] bg-brand-orange/5">
+          <span className="font-display font-extrabold text-7xl text-brand-orange">+1</span>
+          <p className="mt-4 text-base text-muted-foreground text-center">More services available</p>
+          <Link
+            to="/services"
+            className="mt-8 inline-flex items-center gap-2 border border-brand-navy text-brand-navy px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-brand-navy hover:text-white transition-colors"
+          >
+            View All <ArrowRight className="size-4" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -23,105 +108,145 @@ export default function Home() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
+          "@id": "https://www.pipepioneers.co.zw/#business",
           name: "PipePioneers",
-          telephone: "+263787517314",
-          areaServed: "Bulawayo, Zimbabwe",
-          address: { "@type": "PostalAddress", addressLocality: "Bulawayo", addressCountry: "ZW" },
+          alternateName: "Pipe Pioneers",
+          description: "Trusted trade service experts in Bulawayo delivering plumbing, electrical, tiling, painting and full home renovations.",
+          url: "https://www.pipepioneers.co.zw",
+          logo: "https://www.pipepioneers.co.zw/logo.png",
+          image: "https://www.pipepioneers.co.zw/og-image.jpg",
+          telephone: ["+263787517314", "+26371378298"],
+          email: "pipepioneerssales@gmail.com",
+          slogan: "Winning Is The Norm",
+          priceRange: "$$",
+          currenciesAccepted: "ZWL, USD",
+          paymentAccepted: "Cash, Bank Transfer",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "27 Bon Accord",
+            addressLocality: "Westondale, Bulawayo",
+            addressCountry: "ZW",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: -20.1534,
+            longitude: 28.5787,
+          },
+          areaServed: [
+            { "@type": "City", name: "Bulawayo" },
+            { "@type": "State", name: "Matabeleland South" },
+            { "@type": "Country", name: "Zimbabwe" },
+          ],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Trade Services",
+            itemListElement: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Plumbing" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Electrical" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Tiling" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Painting" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Building Renovations" } },
+            ],
+          },
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+263787517314",
+            contactType: "customer service",
+            availableLanguage: ["English", "Ndebele"],
+          },
         }}
       />
-      <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-        <div className="absolute -top-40 -right-20 size-[480px] rounded-full bg-brand-orange/20 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
-          <div className="text-white">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-3 py-1 text-xs font-semibold tracking-wider text-brand-orange uppercase">
-              <Star className="size-3.5" /> Winning Is The Norm
-            </div>
-            <h1 className="mt-5 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
-              Your Trusted <span className="text-brand-orange">Trade Service</span> Experts
-            </h1>
-            <p className="mt-5 text-white/80 text-lg max-w-xl">
-              From plumbing to renovations, PipePioneers delivers quality workmanship across Bulawayo and beyond — on time, on budget, every time.
-            </p>
-            <ul className="mt-6 grid grid-cols-2 gap-2 max-w-md">
-              {["Plumbing", "Electrical", "Tiling", "Painting", "Renovations", "Free Quotes"].map((s) => (
-                <li key={s} className="flex items-center gap-2 text-sm text-white/90">
-                  <CheckCircle2 className="size-4 text-brand-orange" /> {s}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-brand-orange px-5 py-3 text-sm font-semibold text-white shadow-[var(--shadow-accent)] hover:brightness-105">
-                Get a Free Quote <ArrowRight className="size-4" />
-              </Link>
-              <a href="tel:+263787517314" className="inline-flex items-center gap-2 rounded-md border border-white/30 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
-                <Phone className="size-4" /> +263 787 517 314
-              </a>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-3xl bg-brand-orange/30 blur-2xl" />
-            <img src={heroImg} alt="PipePioneers tradesman at work" width={1600} height={1100} className="relative rounded-2xl shadow-2xl object-cover w-full aspect-[4/3]" />
+      <section className="relative overflow-hidden h-screen flex flex-col items-center justify-center text-center">
+        <img
+          src={heroBgImg}
+          alt="PipePioneers background"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 px-4 sm:px-8 flex flex-col items-center">
+          <h1 className="font-display font-extrabold uppercase leading-none tracking-tight text-white"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}>
+            PIPE<br />PIONEERS
+          </h1>
+          <p className="mt-6 text-white/75 text-base md:text-lg max-w-xl leading-relaxed">
+            Bulawayo's trusted trade team — plumbing, electrical, tiling, painting and full renovations. Done right, first time.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3 justify-center">
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:brightness-105 transition-all">
+              Get a Free Quote <ArrowRight className="size-4" />
+            </Link>
+            <Link to="/services" className="inline-flex items-center gap-2 rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
+              Our Services <ArrowRight className="size-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-        <div className="text-center max-w-2xl mx-auto">
-          <div className="text-xs tracking-[0.25em] font-semibold text-brand-orange uppercase">What We Do</div>
-          <h2 className="mt-2 font-display font-bold text-3xl md:text-4xl text-brand-navy">Services built to last</h2>
-          <p className="mt-3 text-muted-foreground">A complete trade service offering under one trusted roof.</p>
-        </div>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="group rounded-xl border border-border bg-card p-6 hover:shadow-[var(--shadow-brand)] hover:-translate-y-1 transition-all">
-              <div className="size-12 rounded-lg bg-brand-navy text-white grid place-items-center group-hover:bg-brand-orange transition-colors">
-                <Icon className="size-6" />
+      <ServiceSection />
+
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-brand-navy uppercase border border-brand-navy/20 rounded-full px-4 py-1.5 mb-6">
+              <span className="text-brand-orange">◆</span> About Us
+            </div>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-brand-navy uppercase leading-tight">
+              Building Bulawayo, One Project<br className="hidden sm:block" /> at a Time :{" "}
+              <span className="text-brand-orange">Our Story</span>
+            </h2>
+          </div>
+          <div className="grid lg:grid-cols-3 gap-4 items-stretch min-h-[460px]">
+            {/* Left navy card */}
+            <div className="bg-brand-navy rounded-2xl p-8 flex flex-col justify-between">
+              <div>
+                <p className="text-white/85 leading-relaxed text-sm">
+                  PipePioneers started with a simple belief — that great trade work begins with respect for the client, the craft and the community. From humble beginnings we've grown into a multi-disciplinary team trusted across Bulawayo.
+                </p>
+                <p className="mt-5 text-white/85 leading-relaxed text-sm">
+                  Whether it's a plumbing repair, an electrical fit-out or a full building renovation, we bring the same standard every time: skilled workmanship, honest pricing and a job done right — first time.
+                </p>
               </div>
-              <h3 className="mt-5 font-display font-semibold text-xl text-brand-navy">{title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+              <Link
+                to="/about"
+                className="mt-8 self-start inline-flex items-center gap-2 border border-white text-white px-5 py-2.5 text-sm font-semibold rounded-md hover:bg-white hover:text-brand-navy transition-colors"
+              >
+                About Us <ArrowRight className="size-4" />
+              </Link>
             </div>
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Link to="/services" className="inline-flex items-center gap-2 text-brand-navy font-semibold hover:text-brand-orange">
-            See all services <ArrowRight className="size-4" />
-          </Link>
-        </div>
-      </section>
-
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
-          <img src={posterImg} alt="PipePioneers team" loading="lazy" className="rounded-2xl shadow-[var(--shadow-brand)] object-cover w-full aspect-[4/5]" />
-          <div>
-            <div className="text-xs tracking-[0.25em] font-semibold text-brand-orange uppercase">Why PipePioneers</div>
-            <h2 className="mt-2 font-display font-bold text-3xl md:text-4xl text-brand-navy">Craftsmanship you can count on</h2>
-            <p className="mt-4 text-muted-foreground">We're a small, passionate crew built on integrity, skill and pride in the work. From a leaky tap to a full home renovation, we treat every job like it matters — because it does.</p>
-            <div className="mt-8 grid grid-cols-3 gap-6">
-              {[{ k: "10+", v: "Years experience" }, { k: "500+", v: "Jobs completed" }, { k: "100%", v: "Satisfaction" }].map((s) => (
-                <div key={s.v}>
-                  <div className="font-display font-extrabold text-3xl text-brand-orange">{s.k}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
-                </div>
-              ))}
+            {/* Center image */}
+            <div className="rounded-2xl overflow-hidden">
+              <img src={garageImg} alt="PipePioneers at work" className="w-full h-full object-cover min-h-[340px]" />
             </div>
-            <Link to="/about" className="mt-8 inline-flex items-center gap-2 rounded-md bg-brand-navy px-5 py-3 text-sm font-semibold text-white hover:bg-brand-navy/90">
-              About our team <ArrowRight className="size-4" />
-            </Link>
+            {/* Right image */}
+            <div className="rounded-2xl overflow-hidden">
+              <img src={buildersImg} alt="PipePioneers builders" className="w-full h-full object-cover min-h-[340px]" />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
-        <div className="rounded-3xl p-10 md:p-14 text-white relative overflow-hidden" style={{ background: "var(--gradient-accent)" }}>
-          <div className="absolute -top-10 -right-10 size-60 rounded-full bg-white/10 blur-2xl" />
-          <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <h3 className="font-display font-bold text-2xl md:text-3xl">Ready to start your project?</h3>
-              <p className="mt-2 text-white/90">Get a free, no-obligation quote today.</p>
-            </div>
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-brand-navy px-6 py-3 text-sm font-semibold text-white hover:brightness-110">
-              Request a Quote <ArrowRight className="size-4" />
+      <section className="bg-brand-navy">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-white">
+            <h2 className="font-display font-extrabold text-4xl sm:text-5xl leading-[1.08]">
+              Ready to Get <span className="text-brand-orange">Started?</span>
+            </h2>
+            <p className="mt-6 text-white/75 text-base md:text-lg max-w-lg leading-relaxed">
+              Get in touch with Bulawayo's most trusted trade team. We'll give you a free quote — no obligation, no surprises. Just honest work done right.
+            </p>
+            <Link
+              to="/contact"
+              className="mt-8 inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:brightness-105 transition-all"
+            >
+              Get In Touch <ArrowRight className="size-4" />
             </Link>
+          </div>
+          <div className="flex items-center justify-center lg:justify-end">
+            <img
+              src={ladyImg}
+              alt="PipePioneers tradesperson at work"
+              className="rounded-2xl object-cover w-full max-w-[560px] aspect-[4/3] shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
+            />
           </div>
         </div>
       </section>

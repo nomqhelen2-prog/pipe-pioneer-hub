@@ -6,10 +6,50 @@ import { useRef, useState } from "react";
 import { Phone, Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 
-// TODO: Replace with your own EmailJS credentials from https://www.emailjs.com/
 const SERVICE_ID = "YOUR_SERVICE_ID";
 const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+
+const infoCards = [
+  {
+    icon: MapPin,
+    label: "Office Address",
+    value: "No 27 Bon Accord, Westondale, Bulawayo",
+  },
+  {
+    icon: Phone,
+    label: "Contact Phone Number",
+    value: "+263 787 517 314 / +263 71 378 298",
+    href: "tel:+263787517314",
+  },
+  {
+    icon: Mail,
+    label: "Mail Address",
+    value: "pipepioneerssales@gmail.com",
+    href: "mailto:pipepioneerssales@gmail.com",
+  },
+];
+
+function Field({
+  label, name, type = "text", required, placeholder,
+}: {
+  label: string; name: string; type?: string; required?: boolean; placeholder?: string;
+}) {
+  return (
+    <div>
+      <label className="text-sm font-medium text-brand-navy">
+        {label}{required && <span className="text-brand-orange"> *</span>}
+      </label>
+      <input
+        type={type}
+        name={name}
+        required={required}
+        placeholder={placeholder ?? `Enter Your ${label}`}
+        className="mt-1.5 w-full rounded-lg border border-input bg-white px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-brand-orange"
+      />
+    </div>
+  );
+}
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -27,7 +67,7 @@ export default function Contact() {
       toast.success("Message sent! We'll be in touch shortly.");
     } catch (err) {
       console.error(err);
-      toast.error("Couldn't send message. Please call us instead or check EmailJS credentials.");
+      toast.error("Couldn't send message. Please try calling us instead.");
     } finally {
       setLoading(false);
     }
@@ -39,85 +79,102 @@ export default function Contact() {
         title="Contact PipePioneers — Free Quotes for Bulawayo Trade Work"
         description="Get in touch with PipePioneers for free plumbing, electrical, tiling, painting or renovation quotes in Bulawayo. Replies within 24 hours."
         path="/contact"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact PipePioneers",
+          url: "https://www.pipepioneers.co.zw/contact",
+          description: "Contact PipePioneers for free trade service quotes in Bulawayo, Zimbabwe.",
+          mainEntity: {
+            "@type": "LocalBusiness",
+            name: "PipePioneers",
+            telephone: ["+263787517314", "+26371378298"],
+            email: "pipepioneerssales@gmail.com",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "27 Bon Accord",
+              addressLocality: "Westondale, Bulawayo",
+              addressCountry: "ZW",
+            },
+          },
+        }}
       />
-      <PageHeader eyebrow="Contact" title="Let's get the job done." subtitle="Tell us about your project and we'll get back with a free quote — usually within 24 hours." />
-
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 grid lg:grid-cols-5 gap-10">
-        <aside className="lg:col-span-2 space-y-6">
-          <div className="rounded-xl bg-brand-navy text-white p-6">
-            <h3 className="font-display font-bold text-xl">Get in touch</h3>
-            <p className="mt-1 text-sm text-white/70">We're here to help with any trade service in Bulawayo.</p>
-            <ul className="mt-6 space-y-4 text-sm">
-              <li className="flex items-start gap-3"><Phone className="size-5 text-brand-orange mt-0.5" />
-                <div>
-                  <div className="text-white/60 text-xs uppercase tracking-wider">Phone</div>
-                  <a href="tel:+263787517314" className="block hover:text-brand-orange">+263 787 517 314</a>
-                  <a href="tel:+26371378298" className="block hover:text-brand-orange">+263 71 378 298</a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3"><Mail className="size-5 text-brand-orange mt-0.5" />
-                <div>
-                  <div className="text-white/60 text-xs uppercase tracking-wider">Email</div>
-                  <a href="mailto:pipepioneerssales@gmail.com" className="hover:text-brand-orange break-all">pipepioneerssales@gmail.com</a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3"><MapPin className="size-5 text-brand-orange mt-0.5" />
-                <div>
-                  <div className="text-white/60 text-xs uppercase tracking-wider">Visit</div>
-                  No 27 Bon Accord<br />Westondale, Bulawayo
-                </div>
-              </li>
-            </ul>
+      <section className="relative overflow-hidden pt-40 pb-24 text-white" style={{ background: "var(--gradient-hero)" }}>
+        <div className="absolute inset-0 bg-brand-navy/60" />
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
+          <div className="w-fit rounded-full border border-brand-orange px-4 py-1 text-xs font-semibold tracking-[0.2em] text-brand-orange uppercase mb-6">
+            Contact Us
           </div>
-        </aside>
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight uppercase tracking-wide max-w-3xl">
+            Your Dream, Our Vision — Let's Connect
+          </h1>
+          <p className="mt-5 text-white/75 text-base md:text-lg max-w-2xl leading-relaxed">
+            We're here to turn your trade goals into reality. Whether you have a question, need a quote, or want to discuss a project — reach out to us. Let's build something remarkable together.
+          </p>
+        </div>
+      </section>
 
-        <div className="lg:col-span-3">
-          <form ref={formRef} onSubmit={onSubmit} className="rounded-xl border border-border bg-card p-6 md:p-8 space-y-5 shadow-sm">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 grid lg:grid-cols-3 gap-8 items-start">
+
+        {/* Form — takes 2 cols */}
+        <div className="lg:col-span-2">
+          <form
+            ref={formRef}
+            onSubmit={onSubmit}
+            className="rounded-2xl border border-border bg-secondary/40 p-8 space-y-5 shadow-sm"
+          >
+            <Field label="Full Name" name="from_name" required />
             <div className="grid sm:grid-cols-2 gap-5">
-              <Field label="Your name" name="from_name" required />
-              <Field label="Phone" name="phone" type="tel" />
+              <Field label="Mobile Number" name="phone" type="tel" required />
+              <Field label="Email Address" name="reply_to" type="email" required />
             </div>
-            <Field label="Email" name="reply_to" type="email" required />
-            <Field label="Service needed" name="service" placeholder="Plumbing, Electrical, Tiling..." />
             <div>
-              <label className="text-sm font-medium text-brand-navy">Message</label>
+              <label className="text-sm font-medium text-brand-navy">
+                Messages <span className="text-brand-orange">*</span>
+              </label>
               <textarea
                 name="message"
                 required
-                rows={5}
-                className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange"
-                placeholder="Tell us about your project..."
+                rows={6}
+                placeholder="Enter Your Message"
+                className="mt-1.5 w-full rounded-lg border border-input bg-white px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-brand-orange resize-none"
               />
             </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-[var(--shadow-accent)] hover:brightness-105 disabled:opacity-70 w-full sm:w-auto"
-            >
-              {loading ? <Loader2 className="size-4 animate-spin" /> : sent ? <CheckCircle2 className="size-4" /> : <Send className="size-4" />}
-              {loading ? "Sending..." : sent ? "Sent!" : "Send message"}
-            </button>
-            <p className="text-xs text-muted-foreground">
-              The form uses EmailJS. Add your Service ID, Template ID and Public Key in <code className="text-brand-navy">src/pages/Contact.tsx</code> to enable delivery.
-            </p>
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                disabled={loading}
+                className="inline-flex items-center gap-2 rounded-lg border border-brand-navy px-8 py-3 text-sm font-semibold text-brand-navy hover:bg-brand-navy hover:text-white transition-colors disabled:opacity-60"
+              >
+                {loading ? <Loader2 className="size-4 animate-spin" /> : sent ? <CheckCircle2 className="size-4" /> : <Send className="size-4" />}
+                {loading ? "Sending..." : sent ? "Sent!" : "Submit Your Form"}
+              </button>
+            </div>
           </form>
         </div>
+
+        {/* Info cards — 1 col */}
+        <div className="space-y-4">
+          {infoCards.map(({ icon: Icon, label, value, href }) => (
+            <div
+              key={label}
+              className="rounded-2xl bg-brand-orange p-6 text-white"
+            >
+              <span className="inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-navy">
+                {label}
+              </span>
+              {href ? (
+                <a href={href} className="mt-3 block text-sm leading-relaxed hover:text-white/80">
+                  {value}
+                </a>
+              ) : (
+                <p className="mt-3 text-sm leading-relaxed">{value}</p>
+              )}
+            </div>
+          ))}
+        </div>
+
       </section>
     </Layout>
-  );
-}
-
-function Field({ label, name, type = "text", required, placeholder }: { label: string; name: string; type?: string; required?: boolean; placeholder?: string }) {
-  return (
-    <div>
-      <label className="text-sm font-medium text-brand-navy">{label}{required && <span className="text-brand-orange"> *</span>}</label>
-      <input
-        type={type}
-        name={name}
-        required={required}
-        placeholder={placeholder}
-        className="mt-1.5 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange"
-      />
-    </div>
   );
 }
