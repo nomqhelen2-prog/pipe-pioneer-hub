@@ -3,16 +3,17 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import SEO from "@/components/site/SEO";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import garageImg from "@/assets/garage.jpeg";
 import buildersImg from "@/assets/builders.jpeg";
-import heroImg from "@/assets/hero.jpg";
-import heroBgImg from "@/assets/hero background image.jpg";
-import ladyImg from "@/assets/ladyfixing.jpg";
-import imgPlumbing from "@/assets/piping.jpeg";
-import imgElectrical from "@/assets/electrical.jpeg";
-import imgTiling from "@/assets/tiling.jpg";
-import imgPainting from "@/assets/painting.jpg";
-import imgRenovations from "@/assets/building.jpeg";
+
+// Vercel Blob Storage URLs — regenerate in Vercel Dashboard if images stop loading
+const heroBgImg = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/hero%20background%20image.webp?vercel-blob-valid-until=1783071136380&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=0hcyOsvDGY3zD7wDzFKQPOCGyS0FV6kopXrkeruWnV0";
+const ladyImg = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/ladyfixing.webp?vercel-blob-valid-until=1783071139227&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=5qjwSbgLEo7--bGxdfcUK1oEEj6vLdrwbmOgFBkS0yg";
+const garageImg = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/garage.webp?vercel-blob-valid-until=1783071133783&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=DwdmFsK7zcnvb8gmfiRPhiOfVq2hznQbibxA2-ITYZA";
+const imgPlumbing = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/piping.webp?vercel-blob-valid-until=1783071145392&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=SA5SxrU7bLN7uWRYrNXj5oS0U88aPcT1Ov5DjmlENn4";
+const imgElectrical = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/electrical.webp?vercel-blob-valid-until=1783071129032&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=9odN53dm7dykvC1e5L5XrRr2Hu0Eh2nQPvl7WOgYcHo";
+const imgTiling = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/tiling.webp?vercel-blob-valid-until=1783071163720&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=RyYPT9hIWj0pcUP7Ef4HCTKZg7KH90RuLPeU9TSw4CM";
+const imgPainting = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/painting.webp?vercel-blob-valid-until=1783071142833&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=O3uDQsyR-0NFQ_nVKd9PIiR8hWD2K6NDoQwxACzK_is";
+const imgRenovations = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/building.webp?vercel-blob-valid-until=1783071123460&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=b8EHffMbpNbINM6MGMDiX7ipIlBau338-eNM3wR2TsE";
 
 const services = [
   { img: imgPlumbing, title: "Plumbing", desc: "Installations, repairs, leak detection and full pipework." },
@@ -187,69 +188,4 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-brand-navy uppercase border border-brand-navy/20 rounded-full px-4 py-1.5 mb-6">
-              <span className="text-brand-orange">◆</span> About Us
-            </div>
-            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-brand-navy uppercase leading-tight">
-              Building Bulawayo, One Project<br className="hidden sm:block" /> at a Time :{" "}
-              <span className="text-brand-orange">Our Story</span>
-            </h2>
-          </div>
-          <div className="grid lg:grid-cols-3 gap-4 items-stretch min-h-[460px]">
-            {/* Left navy card */}
-            <div className="bg-brand-navy rounded-2xl p-8 flex flex-col justify-between">
-              <div>
-                <p className="text-white/85 leading-relaxed text-sm">
-                  PipePioneers started with a simple belief — that great trade work begins with respect for the client, the craft and the community. From humble beginnings we've grown into a multi-disciplinary team trusted across Bulawayo.
-                </p>
-                <p className="mt-5 text-white/85 leading-relaxed text-sm">
-                  Whether it's a plumbing repair, an electrical fit-out or a full building renovation, we bring the same standard every time: skilled workmanship, honest pricing and a job done right — first time.
-                </p>
-              </div>
-              <Link
-                to="/about"
-                className="mt-8 self-start inline-flex items-center gap-2 border border-white text-white px-5 py-2.5 text-sm font-semibold rounded-md hover:bg-white hover:text-brand-navy transition-colors"
-              >
-                About Us <ArrowRight className="size-4" />
-              </Link>
-            </div>
-            {/* Center image */}
-            <div className="rounded-2xl overflow-hidden">
-              <img src={garageImg} alt="PipePioneers at work" className="w-full h-full object-cover min-h-[340px]" />
-            </div>
-            {/* Right image */}
-            <div className="rounded-2xl overflow-hidden">
-              <img src={buildersImg} alt="PipePioneers builders" className="w-full h-full object-cover min-h-[340px]" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-brand-navy">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white">
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl leading-[1.08]">
-              Ready to Get <span className="text-brand-orange">Started?</span>
-            </h2>
-            <p className="mt-6 text-white/75 text-base md:text-lg max-w-lg leading-relaxed">
-              Get in touch with Bulawayo's most trusted trade team. We'll give you a free quote — no obligation, no surprises. Just honest work done right.
-            </p>
-            <Link
-              to="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:brightness-105 transition-all"
-            >
-              Get In Touch <ArrowRight className="size-4" />
-            </Link>
-          </div>
-          <div className="flex items-center justify-center lg:justify-end">
-            <img
-              src={ladyImg}
-              alt="PipePioneers tradesperson at work"
-              className="rounded-2xl object-cover w-full max-w-[560px] aspect-[4/3] shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
-            />
-          </div>
-        </div>
-      </section>
-    </Layout>
-  );
-}
+            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-brand-navy uppercase border border-brand

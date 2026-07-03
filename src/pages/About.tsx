@@ -4,7 +4,8 @@ import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import SEO from "@/components/site/SEO";
 import { ArrowRight, CornerDownRight } from "lucide-react";
-import poster from "@/assets/roof fixes.jpeg";
+// Vercel Blob Storage URLs — regenerate in Vercel Dashboard if images stop loading
+const poster = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/roof%20fixes.webp?vercel-blob-valid-until=1783071148492&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=ECFXj8F8NX5UZNr1zggWo6cPrjcx1SC62s5wZw0K4L4";
 
 const coreValues = [
   { name: "Integrity", desc: "We do what we promise." },
@@ -103,17 +104,4 @@ export default function About() {
                 <span className="font-display font-bold text-xl text-brand-navy">{label}</span>
               </div>
               {content}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 text-center">
-        <h3 className="font-display font-bold text-2xl text-brand-navy">Have a project in mind?</h3>
-        <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-[var(--shadow-accent)]">
-          Get in touch <ArrowRight className="size-4" />
-        </Link>
-      </section>
-    </Layout>
-  );
-}
+    

@@ -3,11 +3,12 @@ import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import SEO from "@/components/site/SEO";
 import { ArrowRight, Check } from "lucide-react";
-import electrical from "@/assets/electrical.jpeg";
-import painting from "@/assets/painting.jpg";
-import tiling from "@/assets/tiling.jpg";
-import piping from "@/assets/piping.jpeg";
-import building from "@/assets/building.jpeg";
+// Vercel Blob Storage URLs — regenerate in Vercel Dashboard if images stop loading
+const electrical = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/electrical.webp?vercel-blob-valid-until=1783071129032&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=9odN53dm7dykvC1e5L5XrRr2Hu0Eh2nQPvl7WOgYcHo";
+const painting = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/painting.webp?vercel-blob-valid-until=1783071142833&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhGajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=O3uDQsyR-0NFQ_nVKd9PIiR8hWD2K6NDoQwxACzK_is";
+const tiling = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/tiling.webp?vercel-blob-valid-until=1783071163720&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=RyYPT9hIWj0pcUP7Ef4HCTKZg7KH90RuLPeU9TSw4CM";
+const piping = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/piping.webp?vercel-blob-valid-until=1783071145392&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=SA5SxrU7bLN7uWRYrNXj5oS0U88aPcT1Ov5DjmlENn4";
+const building = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/building.webp?vercel-blob-valid-until=1783071123460&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=b8EHffMbpNbINM6MGMDiX7ipIlBau338-eNM3wR2TsE";
 
 const services = [
   {
@@ -93,61 +94,4 @@ export default function Services() {
       <PageHeader
         eyebrow="Our Services"
         title="What We Do, We Do Right"
-        subtitle="From a leaking pipe to a full renovation — one team, five trades, zero compromises. Quality workmanship delivered across Bulawayo and beyond."
-      />
-
-      <div className="divide-y divide-border">
-        {services.map((s, i) => {
-          const reverse = i % 2 === 1;
-          return (
-            <div
-              key={s.title}
-              className={`grid lg:grid-cols-2 min-h-[480px] ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}
-            >
-              {/* Text panel */}
-              <div
-                className="flex flex-col justify-start pt-14 pb-14"
-                style={
-                  reverse
-                    ? { paddingLeft: "2rem", paddingRight: "max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem))" }
-                    : { paddingLeft: "max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem))", paddingRight: "2rem" }
-                }
-              >
-                <h2 className="font-display font-bold text-3xl md:text-4xl text-brand-navy leading-snug mb-6">
-                  {s.title}
-                </h2>
-                <ul className="space-y-3">
-                  {s.points.map((point) => (
-                    <li key={point} className="flex items-start gap-3 text-muted-foreground text-base leading-relaxed">
-                      <span className="mt-0.5 flex-shrink-0 size-5 rounded-full bg-brand-orange/10 flex items-center justify-center">
-                        <Check className="size-3 text-brand-orange" strokeWidth={3} />
-                      </span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/contact"
-                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors group"
-                >
-                  Request a quote
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-
-              {/* Image panel */}
-              <div className="overflow-hidden">
-                <img
-                  src={s.img}
-                  alt={s.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover min-h-[360px] lg:min-h-[480px]"
-                />
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </Layout>
-  );
-}
+        subtitle="From a leaking pipe to a full renovation — one team, five trades, zero compromises. Quality workmanship delivered across Bulawa
