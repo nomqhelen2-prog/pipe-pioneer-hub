@@ -3,12 +3,12 @@ import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import SEO from "@/components/site/SEO";
 import { ArrowRight, Check } from "lucide-react";
-// Vercel Blob Storage URLs — regenerate in Vercel Dashboard if images stop loading
-const electrical = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/electrical.webp?vercel-blob-valid-until=1783071129032&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=9odN53dm7dykvC1e5L5XrRr2Hu0Eh2nQPvl7WOgYcHo";
-const painting = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/painting.webp?vercel-blob-valid-until=1783071142833&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhGajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=O3uDQsyR-0NFQ_nVKd9PIiR8hWD2K6NDoQwxACzK_is";
-const tiling = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/tiling.webp?vercel-blob-valid-until=1783071163720&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=RyYPT9hIWj0pcUP7Ef4HCTKZg7KH90RuLPeU9TSw4CM";
-const piping = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/piping.webp?vercel-blob-valid-until=1783071145392&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=SA5SxrU7bLN7uWRYrNXj5oS0U88aPcT1Ov5DjmlENn4";
-const building = "https://3rcrzj7nthpwvvqa.private.blob.vercel-storage.com/building.webp?vercel-blob-valid-until=1783071123460&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfM3JjUnpqN05UaHB3dnZxYSIsIm93bmVySWQiOiJ0ZWFtX1FmdVhOaHV4WlhXMmJXdGFjWkhHajNyRSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzgzMTE0MDg3NjAzLCJpYXQiOjE3ODMwNzA4ODQzOTZ9.JVlwnKy3iOZ1HlDBbsst8lrr2CON7X0YwBWsDCLl1NU&vercel-blob-signature=b8EHffMbpNbINM6MGMDiX7ipIlBau338-eNM3wR2TsE";
+// Vercel Blob Storage (public)
+const electrical = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/electrical.webp";
+const painting = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/painting.webp";
+const tiling = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/tiling.webp";
+const piping = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/piping.webp";
+const building = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/building.webp";
 
 const services = [
   {
