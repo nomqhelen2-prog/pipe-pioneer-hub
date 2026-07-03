@@ -65,13 +65,13 @@ function ServiceSection() {
         {services.slice(0, 4).map(({ title, desc }, i) => (
           <div
             key={title}
-            className="group relative flex-shrink-0 w-[480px] border border-brand-navy/20 snap-start p-12 flex flex-col justify-between min-h-[460px] hover:border-brand-orange transition-colors bg-brand-navy"
+            className="group relative flex-shrink-0 w-[85vw] sm:w-[480px] border border-brand-navy/20 snap-start p-8 sm:p-12 flex flex-col justify-between min-h-[420px] sm:min-h-[460px] hover:border-brand-orange transition-colors bg-brand-navy"
           >
-            <span className="absolute bottom-6 right-8 font-display font-extrabold text-[9rem] text-white/20 select-none leading-none">
+            <span className="absolute bottom-6 right-8 font-display font-extrabold text-[6rem] sm:text-[9rem] text-white/20 select-none leading-none">
               {String(i + 1).padStart(2, "0")}
             </span>
             <div>
-              <h3 className="font-display font-extrabold text-5xl uppercase leading-tight text-white">{title}</h3>
+              <h3 className="font-display font-extrabold text-4xl sm:text-5xl uppercase leading-tight text-white">{title}</h3>
               <p className="mt-6 text-base text-white/70 leading-relaxed max-w-sm">{desc}</p>
             </div>
             <Link
@@ -83,7 +83,7 @@ function ServiceSection() {
           </div>
         ))}
         {/* See all card */}
-        <div className="flex-shrink-0 w-[480px] border border-dashed border-brand-orange snap-start p-12 flex flex-col items-center justify-center min-h-[460px] bg-brand-orange/5">
+        <div className="flex-shrink-0 w-[85vw] sm:w-[480px] border border-dashed border-brand-orange snap-start p-8 sm:p-12 flex flex-col items-center justify-center min-h-[420px] sm:min-h-[460px] bg-brand-orange/5">
           <span className="font-display font-extrabold text-7xl text-brand-orange">+1</span>
           <p className="mt-4 text-base text-muted-foreground text-center">More services available</p>
           <Link
