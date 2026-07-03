@@ -4,7 +4,6 @@ import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import SEO from "@/components/site/SEO";
 import { ArrowRight, CornerDownRight } from "lucide-react";
-// Vercel Blob Storage (public)
 const poster = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/roof%20fixes.webp";
 
 const coreValues = [
@@ -104,4 +103,17 @@ export default function About() {
                 <span className="font-display font-bold text-xl text-brand-navy">{label}</span>
               </div>
               {content}
-    
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 text-center">
+        <h3 className="font-display font-bold text-2xl text-brand-navy">Have a project in mind?</h3>
+        <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-[var(--shadow-accent)]">
+          Get in touch <ArrowRight className="size-4" />
+        </Link>
+      </section>
+    </Layout>
+  );
+}

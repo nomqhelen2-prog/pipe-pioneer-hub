@@ -3,7 +3,6 @@ import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import SEO from "@/components/site/SEO";
 import { ArrowRight, Check } from "lucide-react";
-// Vercel Blob Storage (public)
 const electrical = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/electrical.webp";
 const painting = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/painting.webp";
 const tiling = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/tiling.webp";
@@ -94,4 +93,61 @@ export default function Services() {
       <PageHeader
         eyebrow="Our Services"
         title="What We Do, We Do Right"
-        subtitle="From a leaking pipe to a full renovation — one team, five trades, zero compromises. Quality workmanship delivered across Bulawa
+        subtitle="From a leaking pipe to a full renovation — one team, five trades, zero compromises. Quality workmanship delivered across Bulawayo and beyond."
+      />
+
+      <div className="divide-y divide-border">
+        {services.map((s, i) => {
+          const reverse = i % 2 === 1;
+          return (
+            <div
+              key={s.title}
+              className={`grid lg:grid-cols-2 min-h-[480px] ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}
+            >
+              {/* Text panel */}
+              <div
+                className="flex flex-col justify-start pt-14 pb-14"
+                style={
+                  reverse
+                    ? { paddingLeft: "2rem", paddingRight: "max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem))" }
+                    : { paddingLeft: "max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem))", paddingRight: "2rem" }
+                }
+              >
+                <h2 className="font-display font-bold text-3xl md:text-4xl text-brand-navy leading-snug mb-6">
+                  {s.title}
+                </h2>
+                <ul className="space-y-3">
+                  {s.points.map((point) => (
+                    <li key={point} className="flex items-start gap-3 text-muted-foreground text-base leading-relaxed">
+                      <span className="mt-0.5 flex-shrink-0 size-5 rounded-full bg-brand-orange/10 flex items-center justify-center">
+                        <Check className="size-3 text-brand-orange" strokeWidth={3} />
+                      </span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/contact"
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors group"
+                >
+                  Request a quote
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Image panel */}
+              <div className="overflow-hidden">
+                <img
+                  src={s.img}
+                  alt={s.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover min-h-[360px] lg:min-h-[480px]"
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </Layout>
+  );
+}

@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import SEO from "@/components/site/SEO";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-// Vercel Blob Storage (public)
+const garageImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/garage.webp";
+const buildersImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/builders.webp";
+
 const heroBgImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/hero%20background%20image.webp";
 const ladyImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/ladyfixing.webp";
-const garageImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/garage.webp";
 const imgPlumbing = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/piping.webp";
 const imgElectrical = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/electrical.webp";
 const imgTiling = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/tiling.webp";
@@ -186,4 +187,69 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-brand-navy uppercase border border-brand
+            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-brand-navy uppercase border border-brand-navy/20 rounded-full px-4 py-1.5 mb-6">
+              <span className="text-brand-orange">◆</span> About Us
+            </div>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-brand-navy uppercase leading-tight">
+              Building Bulawayo, One Project<br className="hidden sm:block" /> at a Time :{" "}
+              <span className="text-brand-orange">Our Story</span>
+            </h2>
+          </div>
+          <div className="grid lg:grid-cols-3 gap-4 items-stretch min-h-[460px]">
+            {/* Left navy card */}
+            <div className="bg-brand-navy rounded-2xl p-8 flex flex-col justify-between">
+              <div>
+                <p className="text-white/85 leading-relaxed text-sm">
+                  PipePioneers started with a simple belief — that great trade work begins with respect for the client, the craft and the community. From humble beginnings we've grown into a multi-disciplinary team trusted across Bulawayo.
+                </p>
+                <p className="mt-5 text-white/85 leading-relaxed text-sm">
+                  Whether it's a plumbing repair, an electrical fit-out or a full building renovation, we bring the same standard every time: skilled workmanship, honest pricing and a job done right — first time.
+                </p>
+              </div>
+              <Link
+                to="/about"
+                className="mt-8 self-start inline-flex items-center gap-2 border border-white text-white px-5 py-2.5 text-sm font-semibold rounded-md hover:bg-white hover:text-brand-navy transition-colors"
+              >
+                About Us <ArrowRight className="size-4" />
+              </Link>
+            </div>
+            {/* Center image */}
+            <div className="rounded-2xl overflow-hidden">
+              <img src={garageImg} alt="PipePioneers at work" className="w-full h-full object-cover min-h-[340px]" />
+            </div>
+            {/* Right image */}
+            <div className="rounded-2xl overflow-hidden">
+              <img src={buildersImg} alt="PipePioneers builders" className="w-full h-full object-cover min-h-[340px]" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-navy">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-white">
+            <h2 className="font-display font-extrabold text-4xl sm:text-5xl leading-[1.08]">
+              Ready to Get <span className="text-brand-orange">Started?</span>
+            </h2>
+            <p className="mt-6 text-white/75 text-base md:text-lg max-w-lg leading-relaxed">
+              Get in touch with Bulawayo's most trusted trade team. We'll give you a free quote — no obligation, no surprises. Just honest work done right.
+            </p>
+            <Link
+              to="/contact"
+              className="mt-8 inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:brightness-105 transition-all"
+            >
+              Get In Touch <ArrowRight className="size-4" />
+            </Link>
+          </div>
+          <div className="flex items-center justify-center lg:justify-end">
+            <img
+              src={ladyImg}
+              alt="PipePioneers tradesperson at work"
+              className="rounded-2xl object-cover w-full max-w-[560px] aspect-[4/3] shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
+            />
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+}
