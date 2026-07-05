@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import SEO from "@/components/site/SEO";
+import ScrollZoomImage from "@/components/site/ScrollZoomImage";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 const garageImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/garage.webp";
 const buildersImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/builders.webp";
@@ -160,7 +161,7 @@ export default function Home() {
         <img
           src={heroBgImg}
           alt="PipePioneers background"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-center animate-kenburns-top"
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 px-4 sm:px-8 flex flex-col items-center">
@@ -215,11 +216,11 @@ export default function Home() {
             </div>
             {/* Center image */}
             <div className="rounded-2xl overflow-hidden">
-              <img src={garageImg} alt="PipePioneers at work" className="w-full h-full object-cover min-h-[340px]" />
+              <ScrollZoomImage src={garageImg} alt="PipePioneers at work" className="w-full h-full object-cover min-h-[340px]" />
             </div>
             {/* Right image */}
             <div className="rounded-2xl overflow-hidden">
-              <img src={buildersImg} alt="PipePioneers builders" className="w-full h-full object-cover min-h-[340px]" />
+              <ScrollZoomImage src={buildersImg} alt="PipePioneers builders" className="w-full h-full object-cover min-h-[340px]" />
             </div>
           </div>
         </div>
@@ -242,11 +243,13 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex items-center justify-center lg:justify-end">
-            <img
-              src={ladyImg}
-              alt="PipePioneers tradesperson at work"
-              className="rounded-2xl object-cover w-full max-w-[560px] aspect-[4/3] shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
-            />
+            <div className="rounded-2xl overflow-hidden w-full max-w-[560px] shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
+              <ScrollZoomImage
+                src={ladyImg}
+                alt="PipePioneers tradesperson at work"
+                className="object-cover w-full aspect-[4/3]"
+              />
+            </div>
           </div>
         </div>
       </section>

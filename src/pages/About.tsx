@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import SEO from "@/components/site/SEO";
+import ScrollZoomImage from "@/components/site/ScrollZoomImage";
 import { ArrowRight, CornerDownRight } from "lucide-react";
 const poster = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/roof%20fixes.webp";
 
@@ -77,7 +78,9 @@ export default function About() {
       />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-10 items-center">
-        <img src={poster} alt="PipePioneers team poster" loading="lazy" className="rounded-2xl shadow-[var(--shadow-brand)] object-cover w-full aspect-[4/5]" />
+        <div className="rounded-2xl overflow-hidden shadow-[var(--shadow-brand)]">
+          <ScrollZoomImage src={poster} alt="PipePioneers team poster" loading="lazy" className="object-cover w-full aspect-[4/5]" />
+        </div>
         <div>
           <div className="text-xs tracking-[0.25em] font-semibold text-brand-orange uppercase">Our Story</div>
           <h2 className="mt-2 font-display font-bold text-3xl text-brand-navy">A team that takes pride in the work</h2>

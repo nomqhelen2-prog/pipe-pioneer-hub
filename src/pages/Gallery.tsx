@@ -1,6 +1,7 @@
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import SEO from "@/components/site/SEO";
+import ScrollZoomImage from "@/components/site/ScrollZoomImage";
 import hero from "@/assets/hero.jpg";
 import electrical from "@/assets/electrical.jpg";
 import painting from "@/assets/painting.jpg";
@@ -32,7 +33,7 @@ export default function Gallery() {
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [&>*]:mb-4">
           {items.map((it, i) => (
             <figure key={i} className="break-inside-avoid relative group overflow-hidden rounded-xl shadow-[var(--shadow-brand)]">
-              <img src={it.src} alt={it.label} loading="lazy" className="w-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <ScrollZoomImage src={it.src} alt={it.label} loading="lazy" className="w-full object-cover group-hover:scale-105" />
               <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-navy/90 to-transparent text-white p-4 text-sm font-medium">
                 {it.label}
               </figcaption>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/site/Layout";
 import PageHeader from "@/components/site/PageHeader";
 import SEO from "@/components/site/SEO";
+import ScrollZoomImage from "@/components/site/ScrollZoomImage";
 import { ArrowRight, Check } from "lucide-react";
 const electrical = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/electrical.webp";
 const painting = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/painting.webp";
@@ -137,7 +138,7 @@ export default function Services() {
 
               {/* Image panel */}
               <div className="overflow-hidden">
-                <img
+                <ScrollZoomImage
                   src={s.img}
                   alt={s.title}
                   loading="lazy"
