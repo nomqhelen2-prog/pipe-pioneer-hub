@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://www.pipepioneers.co.zw";
+const SITE_URL = "https://www.pipepioneersinfra.com";
 const SITE_NAME = "PipePioneers";
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 

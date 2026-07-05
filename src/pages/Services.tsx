@@ -83,11 +83,11 @@ export default function Services() {
           "@type": "ItemList",
           name: "PipePioneers Trade Services",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Plumbing", url: "https://www.pipepioneers.co.zw/services#plumbing" },
-            { "@type": "ListItem", position: 2, name: "Electrical", url: "https://www.pipepioneers.co.zw/services#electrical" },
-            { "@type": "ListItem", position: 3, name: "Tiling", url: "https://www.pipepioneers.co.zw/services#tiling" },
-            { "@type": "ListItem", position: 4, name: "Painting", url: "https://www.pipepioneers.co.zw/services#painting" },
-            { "@type": "ListItem", position: 5, name: "Building Renovations", url: "https://www.pipepioneers.co.zw/services#renovations" },
+            { "@type": "ListItem", position: 1, name: "Plumbing", url: "https://www.pipepioneersinfra.com/services#plumbing" },
+            { "@type": "ListItem", position: 2, name: "Electrical", url: "https://www.pipepioneersinfra.com/services#electrical" },
+            { "@type": "ListItem", position: 3, name: "Tiling", url: "https://www.pipepioneersinfra.com/services#tiling" },
+            { "@type": "ListItem", position: 4, name: "Painting", url: "https://www.pipepioneersinfra.com/services#painting" },
+            { "@type": "ListItem", position: 5, name: "Building Renovations", url: "https://www.pipepioneersinfra.com/services#renovations" },
           ],
         }}
       />

@@ -59,7 +59,7 @@ export default function About() {
           "@context": "https://schema.org",
           "@type": "AboutPage",
           name: "About PipePioneers",
-          url: "https://www.pipepioneers.co.zw/about",
+          url: "https://www.pipepioneersinfra.com/about",
           description: "PipePioneers provides reliable, efficient and professional construction and maintenance services through skilled workmanship, integrity, safety and innovation.",
           mainEntity: {
             "@type": "Organization",

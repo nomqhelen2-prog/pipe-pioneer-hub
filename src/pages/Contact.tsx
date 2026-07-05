@@ -87,7 +87,7 @@ export default function Contact() {
           "@context": "https://schema.org",
           "@type": "ContactPage",
           name: "Contact PipePioneers",
-          url: "https://www.pipepioneers.co.zw/contact",
+          url: "https://www.pipepioneersinfra.com/contact",
           description: "Contact PipePioneers for free trade service quotes in Bulawayo, Zimbabwe.",
           mainEntity: {
             "@type": "LocalBusiness",
