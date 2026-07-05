@@ -6,9 +6,9 @@ import { useRef, useState } from "react";
 import { Phone, Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 
-const SERVICE_ID = "YOUR_SERVICE_ID";
-const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const SERVICE_ID = "service_za94e2e";
+const TEMPLATE_ID = "template_ofk8nxg";
+const PUBLIC_KEY = "8Y3im7Y8EigRNpRNd";
 
 const infoCards = [
   {
@@ -53,12 +53,16 @@ function Field({
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
+  const timeRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!formRef.current) return;
+    if (timeRef.current) {
+      timeRef.current.value = new Date().toLocaleString();
+    }
     setLoading(true);
     try {
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY });
@@ -123,10 +127,10 @@ export default function Contact() {
             onSubmit={onSubmit}
             className="rounded-2xl border border-border bg-secondary/40 p-8 space-y-5 shadow-sm"
           >
-            <Field label="Full Name" name="from_name" required />
+            <Field label="Full Name" name="name" required />
             <div className="grid sm:grid-cols-2 gap-5">
               <Field label="Mobile Number" name="phone" type="tel" required />
-              <Field label="Email Address" name="reply_to" type="email" required />
+              <Field label="Email Address" name="email" type="email" required />
             </div>
             <div>
               <label className="text-sm font-medium text-brand-navy">
@@ -140,6 +144,8 @@ export default function Contact() {
                 className="mt-1.5 w-full rounded-lg border border-input bg-white px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-brand-orange resize-none"
               />
             </div>
+            <input ref={timeRef} type="hidden" name="time" />
+            <input type="hidden" name="title" value="New Contact Form Submission" />
             <div className="flex justify-end">
               <button
                 type="submit"
