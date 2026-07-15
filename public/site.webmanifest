@@ -1,0 +1,24 @@
+{
+  "name": "PipePioneers",
+  "short_name": "PipePioneers",
+  "description": "Trusted plumbing, electrical, tiling, painting and renovation services in Bulawayo, Zimbabwe",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0B2545",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "192x192",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

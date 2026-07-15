@@ -110,10 +110,10 @@ export default function Contact() {
             Contact Us
           </div>
           <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight uppercase tracking-wide max-w-3xl">
-            Your Dream, Our Vision — Let's Connect
+            Your Dream, Our Vision! Let's Connect
           </h1>
           <p className="mt-5 text-white/75 text-base md:text-lg max-w-2xl leading-relaxed">
-            We're here to turn your trade goals into reality. Whether you have a question, need a quote, or want to discuss a project — reach out to us. Let's build something remarkable together.
+            We're here to turn your trade goals into reality. Whether you have a question, need a quote or want to discuss a project, reach out to us. Let's build something remarkable together.
           </p>
         </div>
       </section>

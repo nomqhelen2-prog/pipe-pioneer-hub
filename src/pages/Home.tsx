@@ -170,7 +170,7 @@ export default function Home() {
             PIPE<br />PIONEERS
           </h1>
           <p className="mt-6 text-white/75 text-base md:text-lg max-w-xl leading-relaxed">
-            Bulawayo's trusted trade team — plumbing, electrical, tiling, painting and full renovations. Done right, first time.
+            Bulawayo's trusted trade team. Plumbing, electrical, tiling, painting and full renovations. Done right, first time.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 justify-center">
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:brightness-105 transition-all">
@@ -201,10 +201,10 @@ export default function Home() {
             <div className="bg-brand-navy rounded-2xl p-8 flex flex-col justify-between">
               <div>
                 <p className="text-white/85 leading-relaxed text-sm">
-                  PipePioneers started with a simple belief — that great trade work begins with respect for the client, the craft and the community. From humble beginnings we've grown into a multi-disciplinary team trusted across Bulawayo.
+                  PipePioneers started with a simple belief that great trade work begins with respect for the client, the craft and the community. From humble beginnings we've grown into a multi-disciplinary team trusted across Bulawayo.
                 </p>
                 <p className="mt-5 text-white/85 leading-relaxed text-sm">
-                  Whether it's a plumbing repair, an electrical fit-out or a full building renovation, we bring the same standard every time: skilled workmanship, honest pricing and a job done right — first time.
+                  Whether it's a plumbing repair, an electrical fit-out or a full building renovation, we bring the same standard every time: skilled workmanship, honest pricing and a job done right, first time.
                 </p>
               </div>
               <Link
@@ -233,7 +233,7 @@ export default function Home() {
               Ready to Get <span className="text-brand-orange">Started?</span>
             </h2>
             <p className="mt-6 text-white/75 text-base md:text-lg max-w-lg leading-relaxed">
-              Get in touch with Bulawayo's most trusted trade team. We'll give you a free quote — no obligation, no surprises. Just honest work done right.
+              Get in touch with Bulawayo's most trusted trade team. We'll give you a free quote, no obligation, no surprises. Just honest work done right.
             </p>
             <Link
               to="/contact"
