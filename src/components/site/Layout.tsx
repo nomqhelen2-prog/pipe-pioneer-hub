@@ -134,9 +134,50 @@ function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-brand-orange uppercase tracking-wider">Contact</h4>
           <ul className="mt-3 space-y-3 text-sm text-white/80">
-            <li className="flex items-start gap-2"><Phone className="size-4 mt-0.5 text-brand-orange" /> +263 787 517 314<br />+263 71 378 298</li>
-            <li className="flex items-start gap-2"><Mail className="size-4 mt-0.5 text-brand-orange" /> pipepioneerssales@gmail.com</li>
-            <li className="flex items-start gap-2"><MapPin className="size-4 mt-0.5 text-brand-orange" /> No 27 Bon Accord, Westondale, Bulawayo</li>
+            <li className="flex items-start gap-2">
+              <Phone className="size-4 mt-0.5 text-brand-orange flex-shrink-0" />
+              <span>
+                <a
+                  href="https://api.whatsapp.com/send?phone=263787517314"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-orange"
+                >
+                  +263 787 517 314
+                </a>
+                <br />
+                <a
+                  href="https://api.whatsapp.com/send?phone=26371378298"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-orange"
+                >
+                  +263 71 378 298
+                </a>
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Mail className="size-4 mt-0.5 text-brand-orange flex-shrink-0" />
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=pipepioneerssales@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-orange"
+              >
+                pipepioneerssales@gmail.com
+              </a>
+            </li>
+            <li className="flex items-start gap-2">
+              <MapPin className="size-4 mt-0.5 text-brand-orange flex-shrink-0" />
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=No+27+Bon+Accord%2C+Westondale%2C+Bulawayo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-orange"
+              >
+                No 27 Bon Accord, Westondale, Bulawayo
+              </a>
+            </li>
           </ul>
         </div>
       </div>

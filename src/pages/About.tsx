@@ -72,7 +72,6 @@ export default function About() {
         }}
       />
       <PageHeader
-        eyebrow="About Us"
         title="Built on Craft. Driven by Results."
         subtitle="PipePioneers is committed to delivering reliable professional construction and maintenance services — built on integrity, innovation and a passion for lasting impact."
       />

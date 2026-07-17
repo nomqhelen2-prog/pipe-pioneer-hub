@@ -14,19 +14,30 @@ const infoCards = [
   {
     icon: MapPin,
     label: "Office Address",
-    value: "No 27 Bon Accord, Westondale, Bulawayo",
+    links: [
+      {
+        text: "No 27 Bon Accord, Westondale, Bulawayo",
+        href: "https://www.google.com/maps/search/?api=1&query=No+27+Bon+Accord%2C+Westondale%2C+Bulawayo",
+      },
+    ],
   },
   {
     icon: Phone,
     label: "Contact Phone Number",
-    value: "+263 787 517 314 / +263 71 378 298",
-    href: "tel:+263787517314",
+    links: [
+      { text: "+263 787 517 314", href: "https://api.whatsapp.com/send?phone=263787517314" },
+      { text: "+263 71 378 298", href: "https://api.whatsapp.com/send?phone=26371378298" },
+    ],
   },
   {
     icon: Mail,
     label: "Mail Address",
-    value: "pipepioneerssales@gmail.com",
-    href: "mailto:pipepioneerssales@gmail.com",
+    links: [
+      {
+        text: "pipepioneerssales@gmail.com",
+        href: "https://mail.google.com/mail/?view=cm&fs=1&to=pipepioneerssales@gmail.com",
+      },
+    ],
   },
 ];
 
@@ -105,14 +116,11 @@ export default function Contact() {
       />
       <section className="relative overflow-hidden pt-40 pb-24 text-white" style={{ background: "var(--gradient-hero)" }}>
         <div className="absolute inset-0 bg-brand-navy/60" />
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="w-fit rounded-full border border-brand-orange px-4 py-1 text-xs font-semibold tracking-[0.2em] text-brand-orange uppercase mb-6">
-            Contact Us
-          </div>
-          <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight uppercase tracking-wide max-w-3xl">
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 text-center">
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight uppercase tracking-wide max-w-3xl mx-auto">
             Your Dream, Our Vision! Let's Connect
           </h1>
-          <p className="mt-5 text-white/75 text-base md:text-lg max-w-2xl leading-relaxed">
+          <p className="mt-5 text-white/75 text-base md:text-lg max-w-2xl leading-relaxed mx-auto">
             We're here to turn your trade goals into reality. Whether you have a question, need a quote or want to discuss a project, reach out to us. Let's build something remarkable together.
           </p>
         </div>
@@ -161,7 +169,7 @@ export default function Contact() {
 
         {/* Info cards — 1 col */}
         <div className="space-y-4">
-          {infoCards.map(({ icon: Icon, label, value, href }) => (
+          {infoCards.map(({ label, links }) => (
             <div
               key={label}
               className="rounded-2xl bg-brand-orange p-6 text-white"
@@ -169,13 +177,19 @@ export default function Contact() {
               <span className="inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-navy">
                 {label}
               </span>
-              {href ? (
-                <a href={href} className="mt-3 block text-sm leading-relaxed hover:text-white/80">
-                  {value}
-                </a>
-              ) : (
-                <p className="mt-3 text-sm leading-relaxed">{value}</p>
-              )}
+              <div className="mt-3 space-y-1">
+                {links.map((l) => (
+                  <a
+                    key={l.text}
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm leading-relaxed hover:text-white/80"
+                  >
+                    {l.text}
+                  </a>
+                ))}
+              </div>
             </div>
           ))}
         </div>

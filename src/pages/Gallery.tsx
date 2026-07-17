@@ -28,7 +28,7 @@ export default function Gallery() {
         description="Browse PipePioneers' recent plumbing, electrical, tiling, painting and renovation projects across Bulawayo."
         path="/gallery"
       />
-      <PageHeader eyebrow="Gallery" title="Recent work, real results." subtitle="A snapshot of projects we've delivered across Bulawayo — from quick fixes to full renovations." />
+      <PageHeader title="Recent work, real results." subtitle="A snapshot of projects we've delivered across Bulawayo — from quick fixes to full renovations." />
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [&>*]:mb-4">
           {items.map((it, i) => (

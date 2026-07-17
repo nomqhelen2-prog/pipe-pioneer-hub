@@ -92,9 +92,8 @@ export default function Services() {
         }}
       />
       <PageHeader
-        eyebrow="Our Services"
         title="What We Do, We Do Right"
-        subtitle="From a leaking pipe to a full renovation — one team, five trades, zero compromises. Quality workmanship delivered across Bulawayo and beyond."
+        subtitle="From a leaking pipe to a full renovation, our one team and five trades deliver quality workmanship across Bulawayo and beyond, with zero compromises."
       />
 
       <div className="divide-y divide-border">

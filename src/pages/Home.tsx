@@ -188,9 +188,6 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-brand-navy uppercase border border-brand-navy/20 rounded-full px-4 py-1.5 mb-6">
-              <span className="text-brand-orange">◆</span> About Us
-            </div>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-brand-navy uppercase leading-tight">
               Building Bulawayo, One Project<br className="hidden sm:block" /> at a Time :{" "}
               <span className="text-brand-orange">Our Story</span>
@@ -226,13 +223,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-brand-navy">
+      <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white">
+          <div className="text-brand-navy">
             <h2 className="font-display font-extrabold text-4xl sm:text-5xl leading-[1.08]">
               Ready to Get <span className="text-brand-orange">Started?</span>
             </h2>
-            <p className="mt-6 text-white/75 text-base md:text-lg max-w-lg leading-relaxed">
+            <p className="mt-6 text-muted-foreground text-base md:text-lg max-w-lg leading-relaxed">
               Get in touch with Bulawayo's most trusted trade team. We'll give you a free quote, no obligation, no surprises. Just honest work done right.
             </p>
             <Link
