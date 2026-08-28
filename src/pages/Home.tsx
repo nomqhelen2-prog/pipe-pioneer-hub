@@ -4,7 +4,6 @@ import Layout from "@/components/site/Layout";
 import SEO from "@/components/site/SEO";
 import ScrollZoomImage from "@/components/site/ScrollZoomImage";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-const garageImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/garage.webp";
 const buildersImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/builders.webp";
 
 const heroBgImg = "https://lonx0peeyem81byq.public.blob.vercel-storage.com/hero%20background%20image.webp";
@@ -26,7 +25,10 @@ const services = [
 function ServiceSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scroll = (dir: "left" | "right") => {
-    scrollRef.current?.scrollBy({ left: dir === "right" ? 500 : -500, behavior: "smooth" });
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = el.clientWidth;
+    el.scrollBy({ left: dir === "right" ? amount : -amount, behavior: "smooth" });
   };
 
   return (
@@ -58,19 +60,17 @@ function ServiceSection() {
         </div>
       </div>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
       <div
         ref={scrollRef}
-        className="mt-10 px-4 sm:px-6 flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory"
+        className="mt-10 flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory"
         style={{ scrollbarWidth: "none" }}
       >
-        {services.slice(0, 4).map(({ title, desc }, i) => (
+        {services.slice(0, 4).map(({ title, desc }) => (
           <div
             key={title}
-            className="group relative flex-shrink-0 w-[85vw] sm:w-[480px] border border-brand-navy/20 snap-start p-8 sm:p-12 flex flex-col justify-between min-h-[420px] sm:min-h-[460px] hover:border-brand-orange transition-colors bg-brand-navy"
+            className="group relative flex-shrink-0 w-[85vw] sm:w-[calc(50%-0.375rem)] border border-brand-navy/20 snap-start p-8 sm:p-12 flex flex-col justify-between min-h-[420px] sm:min-h-[460px] hover:border-brand-orange transition-colors bg-brand-navy"
           >
-            <span className="absolute bottom-6 right-8 font-display font-extrabold text-[6rem] sm:text-[9rem] text-white/20 select-none leading-none">
-              {String(i + 1).padStart(2, "0")}
-            </span>
             <div>
               <h3 className="font-display font-extrabold text-4xl sm:text-5xl uppercase leading-tight text-white">{title}</h3>
               <p className="mt-6 text-base text-white/70 leading-relaxed max-w-sm">{desc}</p>
@@ -84,7 +84,7 @@ function ServiceSection() {
           </div>
         ))}
         {/* See all card */}
-        <div className="flex-shrink-0 w-[85vw] sm:w-[480px] border border-dashed border-brand-orange snap-start p-8 sm:p-12 flex flex-col items-center justify-center min-h-[420px] sm:min-h-[460px] bg-brand-orange/5">
+        <div className="flex-shrink-0 w-[85vw] sm:w-[calc(50%-0.375rem)] border border-dashed border-brand-orange snap-start p-8 sm:p-12 flex flex-col items-center justify-center min-h-[420px] sm:min-h-[460px] bg-brand-orange/5">
           <span className="font-display font-extrabold text-7xl text-brand-orange">+1</span>
           <p className="mt-4 text-base text-muted-foreground text-center">More services available</p>
           <Link
@@ -95,6 +95,7 @@ function ServiceSection() {
           </Link>
         </div>
       </div>
+      </div>
     </section>
   );
 }
@@ -103,7 +104,7 @@ export default function Home() {
   return (
     <Layout>
       <SEO
-        title="PipePioneers — Plumbing, Electrical & Renovations in Bulawayo"
+        title="PipePioneers | Plumbing, Electrical & Renovations in Bulawayo"
         description="Trusted trade service experts in Bulawayo: plumbing, electrical, tiling, painting and full home renovations. Get a free quote today."
         path="/"
         jsonLd={{
@@ -193,14 +194,14 @@ export default function Home() {
               <span className="text-brand-orange">Our Story</span>
             </h2>
           </div>
-          <div className="grid lg:grid-cols-3 gap-4 items-stretch min-h-[460px]">
+          <div className="grid lg:grid-cols-2 gap-4 items-stretch min-h-[460px]">
             {/* Left navy card */}
             <div className="bg-brand-navy rounded-2xl p-8 flex flex-col justify-between">
               <div>
-                <p className="text-white/85 leading-relaxed text-sm">
+                <p className="text-white/85 leading-relaxed text-lg">
                   PipePioneers started with a simple belief that great trade work begins with respect for the client, the craft and the community. From humble beginnings we've grown into a multi-disciplinary team trusted across Bulawayo.
                 </p>
-                <p className="mt-5 text-white/85 leading-relaxed text-sm">
+                <p className="mt-5 text-white/85 leading-relaxed text-lg">
                   Whether it's a plumbing repair, an electrical fit-out or a full building renovation, we bring the same standard every time: skilled workmanship, honest pricing and a job done right, first time.
                 </p>
               </div>
@@ -211,11 +212,7 @@ export default function Home() {
                 About Us <ArrowRight className="size-4" />
               </Link>
             </div>
-            {/* Center image */}
-            <div className="rounded-2xl overflow-hidden">
-              <ScrollZoomImage src={garageImg} alt="PipePioneers at work" className="w-full h-full object-cover min-h-[340px]" />
-            </div>
-            {/* Right image */}
+            {/* Image */}
             <div className="rounded-2xl overflow-hidden">
               <ScrollZoomImage src={buildersImg} alt="PipePioneers builders" className="w-full h-full object-cover min-h-[340px]" />
             </div>

@@ -91,7 +91,7 @@ export default function Contact() {
   return (
     <Layout>
       <SEO
-        title="Contact PipePioneers — Free Quotes for Bulawayo Trade Work"
+        title="Contact PipePioneers | Free Quotes for Bulawayo Trade Work"
         description="Get in touch with PipePioneers for free plumbing, electrical, tiling, painting or renovation quotes in Bulawayo. Replies within 24 hours."
         path="/contact"
         jsonLd={{

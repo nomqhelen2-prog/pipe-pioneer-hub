@@ -24,7 +24,7 @@ export default function Gallery() {
   return (
     <Layout>
       <SEO
-        title="Gallery — Recent Trade & Renovation Projects in Bulawayo"
+        title="Gallery | Recent Trade & Renovation Projects in Bulawayo"
         description="Browse PipePioneers' recent plumbing, electrical, tiling, painting and renovation projects across Bulawayo."
         path="/gallery"
       />

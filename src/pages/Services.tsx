@@ -75,7 +75,7 @@ export default function Services() {
   return (
     <Layout>
       <SEO
-        title="Services — Plumbing, Electrical, Tiling, Painting & Renovations | PipePioneers"
+        title="Services | Plumbing, Electrical, Tiling, Painting & Renovations | PipePioneers"
         description="Full-service trades in Bulawayo: plumbing, electrical, tiling, painting and building renovations. Quality workmanship from PipePioneers."
         path="/services"
         jsonLd={{
@@ -96,23 +96,16 @@ export default function Services() {
         subtitle="From a leaking pipe to a full renovation, our one team and five trades deliver quality workmanship across Bulawayo and beyond, with zero compromises."
       />
 
-      <div className="divide-y divide-border">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 space-y-8">
         {services.map((s, i) => {
           const reverse = i % 2 === 1;
           return (
             <div
               key={s.title}
-              className={`grid lg:grid-cols-2 min-h-[480px] ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}
+              className={`grid lg:grid-cols-2 rounded-2xl overflow-hidden border border-border shadow-[var(--shadow-brand)] bg-white ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}
             >
               {/* Text panel */}
-              <div
-                className="flex flex-col justify-start pt-14 pb-14"
-                style={
-                  reverse
-                    ? { paddingLeft: "2rem", paddingRight: "max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem))" }
-                    : { paddingLeft: "max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem))", paddingRight: "2rem" }
-                }
-              >
+              <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
                 <h2 className="font-display font-bold text-3xl md:text-4xl text-brand-navy leading-snug mb-6">
                   {s.title}
                 </h2>
@@ -141,7 +134,7 @@ export default function Services() {
                   src={s.img}
                   alt={s.title}
                   loading="lazy"
-                  className="w-full h-full object-cover min-h-[360px] lg:min-h-[480px]"
+                  className="w-full h-full object-cover min-h-[300px] lg:min-h-[420px]"
                 />
               </div>
             </div>

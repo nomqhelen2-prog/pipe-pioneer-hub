@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <Layout>
       <Helmet>
-        <title>Page not found — PipePioneers</title>
+        <title>Page not found | PipePioneers</title>
         <meta name="robots" content="noindex" />
       </Helmet>
       <section className="mx-auto max-w-3xl px-4 py-32 text-center">

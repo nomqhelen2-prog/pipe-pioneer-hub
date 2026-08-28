@@ -52,7 +52,7 @@ export default function About() {
   return (
     <Layout>
       <SEO
-        title="About PipePioneers — Bulawayo's Trusted Trade Team"
+        title="About PipePioneers | Bulawayo's Trusted Trade Team"
         description="PipePioneers is a leading infrastructure and construction company delivering sustainable, innovative and high-quality trade solutions across Africa."
         path="/about"
         jsonLd={{
@@ -73,7 +73,7 @@ export default function About() {
       />
       <PageHeader
         title="Built on Craft. Driven by Results."
-        subtitle="PipePioneers is committed to delivering reliable professional construction and maintenance services — built on integrity, innovation and a passion for lasting impact."
+        subtitle="PipePioneers is committed to delivering reliable professional construction and maintenance services built on integrity, innovation and a passion for lasting impact."
       />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-10 items-center">
@@ -84,7 +84,7 @@ export default function About() {
           <div className="text-xs tracking-[0.25em] font-semibold text-brand-orange uppercase">Our Story</div>
           <h2 className="mt-2 font-display font-bold text-3xl text-brand-navy">A team that takes pride in the work</h2>
           <p className="mt-4 text-muted-foreground">
-            PipePioneers started with a simple belief: that great trade work begins with respect — for the client, the craft and the community. From humble beginnings, we've grown into a multi-disciplinary team delivering construction, maintenance and infrastructure solutions across Bulawayo and beyond.
+            PipePioneers started with a simple belief: that great trade work begins with respect for the client, the craft and the community. From humble beginnings, we've grown into a multi-disciplinary team delivering construction, maintenance and infrastructure solutions across Bulawayo and beyond.
           </p>
           <p className="mt-4 text-muted-foreground">
             Whether it's a leaking pipe, a road project or a full renovation, we bring the same commitment every time: do it right, do it safely and build something that lasts.
