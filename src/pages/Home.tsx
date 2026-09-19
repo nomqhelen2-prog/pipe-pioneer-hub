@@ -117,7 +117,7 @@ export default function Home() {
           url: "https://www.pipepioneersinfra.com",
           logo: "https://www.pipepioneersinfra.com/logo.png",
           image: "https://www.pipepioneersinfra.com/og-image.jpg",
-          telephone: ["+263787517314", "+26371378298"],
+          telephone: "+263292330592",
           email: "pipepioneerssales@gmail.com",
           slogan: "Winning Is The Norm",
           priceRange: "$$",
@@ -125,14 +125,14 @@ export default function Home() {
           paymentAccepted: "Cash, Bank Transfer",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "27 Bon Accord",
-            addressLocality: "Westondale, Bulawayo",
+            streetAddress: "Office 36, Stand 16463, Cowden Road",
+            addressLocality: "Steeldale, Bulawayo",
             addressCountry: "ZW",
           },
           geo: {
             "@type": "GeoCoordinates",
-            latitude: -20.1534,
-            longitude: 28.5787,
+            latitude: -20.15917,
+            longitude: 28.56,
           },
           areaServed: [
             { "@type": "City", name: "Bulawayo" },
@@ -152,13 +152,13 @@ export default function Home() {
           },
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+263787517314",
+            telephone: "+263292330592",
             contactType: "customer service",
             availableLanguage: ["English", "Ndebele"],
           },
         }}
       />
-      <section className="relative overflow-hidden h-screen flex flex-col items-center justify-center text-center">
+      <section className="relative overflow-hidden h-[52vh] min-h-[380px] max-h-[560px] flex flex-col items-center justify-center text-center">
         <img
           src={heroBgImg}
           alt="PipePioneers background"

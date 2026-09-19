@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, MapPin, Navigation } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Navigation, MessageSquareText } from "lucide-react";
 import logoImg from "@/assets/logo.png";
 import { useState, useEffect, type ReactNode } from "react";
+import EnquiryModal from "@/components/site/EnquiryModal";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -10,7 +11,7 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-function Navbar() {
+function Navbar({ onEnquiryClick }: { onEnquiryClick: () => void }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const path = useLocation().pathname;
@@ -67,6 +68,13 @@ function Navbar() {
               </Link>
             );
           })}
+          <button
+            onClick={onEnquiryClick}
+            className="ml-2 inline-flex items-center gap-2 rounded-md bg-brand-orange px-4 py-2 text-sm font-semibold text-white hover:brightness-105 transition-all"
+          >
+            <MessageSquareText className="size-4" />
+            Make an Enquiry
+          </button>
         </nav>
 
         {/* Mobile toggle */}
@@ -95,6 +103,16 @@ function Navbar() {
                 {n.label}
               </Link>
             ))}
+            <button
+              onClick={() => {
+                setOpen(false);
+                onEnquiryClick();
+              }}
+              className="mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-brand-orange px-4 py-2.5 text-sm font-semibold text-white"
+            >
+              <MessageSquareText className="size-4" />
+              Make an Enquiry
+            </button>
           </div>
         </div>
       )}
@@ -136,25 +154,9 @@ function Footer() {
           <ul className="mt-3 space-y-3 text-sm text-white/80">
             <li className="flex items-start gap-2">
               <Phone className="size-4 mt-0.5 text-brand-orange flex-shrink-0" />
-              <span>
-                <a
-                  href="https://api.whatsapp.com/send?phone=263787517314"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand-orange"
-                >
-                  +263 787 517 314
-                </a>
-                <br />
-                <a
-                  href="https://api.whatsapp.com/send?phone=26371378298"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand-orange"
-                >
-                  +263 71 378 298
-                </a>
-              </span>
+              <a href="tel:+263292330592" className="hover:text-brand-orange">
+                +263 29 233 0592
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="size-4 mt-0.5 text-brand-orange flex-shrink-0" />
@@ -170,30 +172,37 @@ function Footer() {
             <li className="flex items-start gap-2">
               <MapPin className="size-4 mt-0.5 text-brand-orange flex-shrink-0" />
               <a
-                href="https://www.google.com/maps/search/?api=1&query=No+27+Bon+Accord%2C+Westondale%2C+Bulawayo"
+                href="https://www.google.com/maps/search/?api=1&query=Office+36%2C+Stand+16463%2C+Cowden+Road%2C+Steeldale%2C+Bulawayo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-brand-orange"
               >
-                No 27 Bon Accord, Westondale, Bulawayo
+                Office 36, Stand 16463, Cowden Road, Steeldale, Bulawayo
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10 py-5 text-center text-xs text-white/60">
-        © {new Date().getFullYear()} PipePioneers. All rights reserved.
+      <div className="border-t border-white/10 py-5 px-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-xs text-white/60">
+        <span>© {new Date().getFullYear()} PipePioneers. All rights reserved.</span>
+        <span className="hidden sm:inline text-white/30">|</span>
+        <Link to="/terms-of-use" className="hover:text-brand-orange">Terms of Use</Link>
+        <span className="hidden sm:inline text-white/30">|</span>
+        <Link to="/privacy-policy" className="hover:text-brand-orange">Privacy Policy</Link>
       </div>
     </footer>
   );
 }
 
 export default function Layout({ children }: { children: ReactNode }) {
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Navbar />
+      <Navbar onEnquiryClick={() => setEnquiryOpen(true)} />
       <main className="flex-1">{children}</main>
       <Footer />
+      <EnquiryModal open={enquiryOpen} onClose={() => setEnquiryOpen(false)} />
     </div>
   );
 }

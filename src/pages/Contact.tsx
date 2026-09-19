@@ -5,10 +5,7 @@ import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import { Phone, Mail, MapPin, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
-
-const SERVICE_ID = "service_za94e2e";
-const TEMPLATE_ID = "template_ofk8nxg";
-const PUBLIC_KEY = "8Y3im7Y8EigRNpRNd";
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/lib/emailjs";
 
 const infoCards = [
   {
@@ -16,8 +13,8 @@ const infoCards = [
     label: "Office Address",
     links: [
       {
-        text: "No 27 Bon Accord, Westondale, Bulawayo",
-        href: "https://www.google.com/maps/search/?api=1&query=No+27+Bon+Accord%2C+Westondale%2C+Bulawayo",
+        text: "Office 36, Stand 16463, Cowden Road, Steeldale, Bulawayo",
+        href: "https://www.google.com/maps/search/?api=1&query=Office+36%2C+Stand+16463%2C+Cowden+Road%2C+Steeldale%2C+Bulawayo",
       },
     ],
   },
@@ -25,8 +22,7 @@ const infoCards = [
     icon: Phone,
     label: "Contact Phone Number",
     links: [
-      { text: "+263 787 517 314", href: "https://api.whatsapp.com/send?phone=263787517314" },
-      { text: "+263 71 378 298", href: "https://api.whatsapp.com/send?phone=26371378298" },
+      { text: "+263 29 233 0592", href: "tel:+263292330592" },
     ],
   },
   {
@@ -76,7 +72,7 @@ export default function Contact() {
     }
     setLoading(true);
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY });
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, { publicKey: EMAILJS_PUBLIC_KEY });
       setSent(true);
       formRef.current.reset();
       toast.success("Message sent! We'll be in touch shortly.");
@@ -103,12 +99,12 @@ export default function Contact() {
           mainEntity: {
             "@type": "LocalBusiness",
             name: "PipePioneers",
-            telephone: ["+263787517314", "+26371378298"],
+            telephone: "+263292330592",
             email: "pipepioneerssales@gmail.com",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "27 Bon Accord",
-              addressLocality: "Westondale, Bulawayo",
+              streetAddress: "Office 36, Stand 16463, Cowden Road",
+              addressLocality: "Steeldale, Bulawayo",
               addressCountry: "ZW",
             },
           },
@@ -182,8 +178,7 @@ export default function Contact() {
                   <a
                     key={l.text}
                     href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="block text-sm leading-relaxed hover:text-white/80"
                   >
                     {l.text}
