@@ -158,7 +158,7 @@ export default function Home() {
           },
         }}
       />
-      <section className="relative overflow-hidden h-[52vh] min-h-[380px] max-h-[560px] flex flex-col items-center justify-center text-center">
+      <section className="relative overflow-hidden h-[90vh] min-h-[680px] max-h-[920px] flex flex-col items-center justify-center text-center">
         <img
           src={heroBgImg}
           alt="PipePioneers background"
